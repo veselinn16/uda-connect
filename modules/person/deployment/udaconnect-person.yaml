@@ -31,7 +31,7 @@ spec:
         service: udaconnect-person-api
     spec:
       containers:
-      - image: noelsharker/person:latest
+      - image: veselin032/person:latest
         name: udaconnect-person-api
         imagePullPolicy: Always
         env:

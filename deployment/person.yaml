@@ -31,7 +31,7 @@ spec:
         service: person
     spec:
       containers:
-      - image: noelsharker/person:latest
+      - image: veselin032/person:latest
         name: person
         imagePullPolicy: Always
         env:

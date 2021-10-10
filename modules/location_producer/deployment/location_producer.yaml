@@ -31,7 +31,7 @@ spec:
         service: location-producer
     spec:
       containers:
-      - image: noelsharker/location-producer:latest
+      - image: veselin032/location-producer:latest
         name: location-producer
         imagePullPolicy: Always
       restartPolicy: Always

@@ -31,7 +31,7 @@ spec:
         service: connection
     spec:
       containers:
-        - image: noelsharker/connection:latest
+        - image: veselin032/connection:latest
           name: connection
           imagePullPolicy: Always
           env:

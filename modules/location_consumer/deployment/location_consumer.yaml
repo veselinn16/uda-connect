@@ -31,7 +31,7 @@ spec:
         service: location-consumer
     spec:
       containers:
-      - image: noelsharker/location-consumer:latest
+      - image: veselin032/location-consumer:latest
         name: location-consumer
         imagePullPolicy: Always
         env:

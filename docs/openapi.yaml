@@ -47,10 +47,10 @@ paths:
               type: string
               example:
                 id: '6'
-                first_name: noel
-                last_name: lou
-                company_name: sharker
-            example: "{\r\n    \"id\": \"6\",\"first_name\":\"noel\", \"last_name\":\"lou\",\"company_name\":\"sharker\"\r\n}\r\n"
+                first_name: veselin
+                last_name: tonev
+                company_name: Tonev
+            example: "{\r\n    \"id\": \"6\",\"first_name\":\"veselin\", \"last_name\":\"tonev\",\"company_name\":\"Tonev\"\r\n}\r\n"
   /api/persons/5:
     get:
       summary: Get Person with ID

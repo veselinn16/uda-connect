@@ -31,7 +31,7 @@ spec:
         service: frontend
     spec:
       containers:
-        - image: noelsharker/frontend:latest
+        - image: veselin032/frontend:latest
           name: udaconnect-app
           imagePullPolicy: Always
           resources:
