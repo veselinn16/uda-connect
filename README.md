@@ -75,6 +75,77 @@ Type `exit` to exit the virtual OS and you will find yourself back in your compu
 
 Afterwards, you can test that `kubectl` works by running a command like `kubectl describe services`. It should not return any errors.
 
+
+```bash
+Noel@TABLET-1V9K65DE MINGW64 ~/Desktop/udacity/Udaconnect
+$ vagrant ssh
+Last login: Tue Oct  5 04:54:18 2021 from 10.0.2.2
+vagrant@master:~> curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+vagrant@master:~> chmod 700 get_helm.sh
+vagrant@master:~> ./get_helm.sh
+Downloading https://get.helm.sh/helm-v3.7.0-linux-amd64.tar.gz
+Verifying checksum... Done.
+Preparing to install helm into /usr/local/bin
+helm installed into /usr/local/bin/helm
+vagrant@master:~> helm version
+version.BuildInfo{Version:"v3.7.0", GitCommit:"eeac83883cb4014fe60267ec6373570374ce770b", GitTreeState:"clean", GoVersion:"go1.16.8"}
+vagrant@master:~> helm repo add bitnami https://charts.bitnami.com/bitnami
+"bitnami" has been added to your repositories
+vagrant@master:~> exit
+logout
+Connection to 127.0.0.1 closed.
+```
+
+```bash
+master:/home/vagrant # helm repo add bitnami https://charts.bitnami.com/bitnami
+"bitnami" has been added to your repositories
+master:/home/vagrant # export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+master:/home/vagrant # helm install udaconnect-kafka bitnami/kafka
+NAME: udaconnect-kafka
+LAST DEPLOYED: Tue Oct  5 06:47:38 2021
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+** Please be patient while the chart is being deployed **
+
+Kafka can be accessed by consumers via port 9092 on the following DNS name from within your cluster:
+
+    udaconnect-kafka.default.svc.cluster.local
+
+Each Kafka broker can be accessed by producers via port 9092 on the following DNS name(s) from within your cluster:
+
+    udaconnect-kafka-0.udaconnect-kafka-headless.default.svc.cluster.local:9092
+
+To create a pod that you can use as a Kafka client run the following commands:
+
+    kubectl run udaconnect-kafka-client --restart='Never' --image docker.io/bitnami/kafka:2.8.1-debian-10-r0 --namespace default --command -- sleep infinity
+    kubectl exec --tty -i udaconnect-kafka-client --namespace default -- bash
+
+    PRODUCER:
+        kafka-console-producer.sh \
+
+            --broker-list udaconnect-kafka-0.udaconnect-kafka-headless.default.svc.cluster.local:9092 \
+            --topic test
+
+    CONSUMER:
+        kafka-console-consumer.sh \
+
+            --bootstrap-server udaconnect-kafka.default.svc.cluster.local:9092 \
+            --topic test \
+            --from-beginning
+master:/home/vagrant # 
+```
+
+```bash
+master:/home/vagrant # kubectl get pods
+NAME                           READY   STATUS    RESTARTS   AGE
+udaconnect-kafka-zookeeper-0   1/1     Running   0          48m
+udaconnect-kafka-0             1/1     Running   0          48m
+master:/home/vagrant #
+```
+
 ### Steps
 1. `kubectl apply -f deployment/db-configmap.yaml` - Set up environment variables for the pods
 2. `kubectl apply -f deployment/db-secret.yaml` - Set up secrets for the pods
