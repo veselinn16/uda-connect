@@ -77,7 +77,7 @@ Afterwards, you can test that `kubectl` works by running a command like `kubectl
 
 
 ```bash
-Noel@TABLET-1V9K65DE MINGW64 ~/Desktop/udacity/Udaconnect
+/Users/veselintonev/programming/Udacity/cloud_native_nd/udaConnect
 $ vagrant ssh
 Last login: Tue Oct  5 04:54:18 2021 from 10.0.2.2
 vagrant@master:~> curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
