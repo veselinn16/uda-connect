@@ -32,8 +32,7 @@ Vagrant.configure("2") do |config|
       sudo zypper refresh
       sudo zypper --non-interactive install bzip2
       sudo zypper --non-interactive install etcd
-      sudo zypper --non-interactive install apparmor-parser
-      curl -sfL https://get.k3s.io | sh -
+      curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v1.21.5+k3s1 sh -s -
     SHELL
   end
 
@@ -61,7 +60,7 @@ Vagrant.configure("2") do |config|
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
-  config.vm.network "public_network"
+  # config.vm.network "public_network"
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
