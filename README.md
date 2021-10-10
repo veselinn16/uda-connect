@@ -154,6 +154,13 @@ master:/home/vagrant #
 5. `kubectl apply -f deployment/udaconnect-app.yaml` - Set up the service and deployment for the web app
 6. `sh scripts/run_db_command.sh <POD_NAME>` - Seed your database against the `postgres` pod. (`kubectl get pods` will give you the `POD_NAME`)
 
+### Addition Steps
+1. `kubectl apply -f deployment/connection.yaml` - Set up the connection service
+2. `kubectl apply -f deployment/frontend.yaml` - Set up the frontend application
+3. `kubectl apply -f modules/person/deployment/udaconnect-person.yaml` - Set up person api service
+4. `kubectl apply -f modules/location_producer/deployment/location_producer.yaml` - Set up location_producer service
+5. `kubectl apply -f modules/location_consumer/deployment/location_consumer.yaml` - Set up location_consumer service
+
 Manually applying each of the individual `yaml` files is cumbersome but going through each step provides some context on the content of the starter project. In practice, we would have reduced the number of steps by running the command against a directory to apply of the contents: `kubectl apply -f deployment/`.
 
 Note: The first time you run this project, you will need to seed the database with dummy data. Use the command `sh scripts/run_db_command.sh <POD_NAME>` against the `postgres` pod. (`kubectl get pods` will give you the `POD_NAME`). Subsequent runs of `kubectl apply` for making changes to deployments or services shouldn't require you to seed the database again!
