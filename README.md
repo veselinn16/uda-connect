@@ -155,7 +155,7 @@ master:/home/vagrant #
 6. `sh scripts/run_db_command.sh <POD_NAME>` - Seed your database against the `postgres` pod. (`kubectl get pods` will give you the `POD_NAME`)
 
 ### Addition Steps
-1. `kubectl apply -f deployment/connection.yaml` - Set up the connection service
+1. `kubectl apply -f deployment/consumer.yaml` - Set up the consumer service
 2. `kubectl apply -f deployment/frontend.yaml` - Set up the frontend application
 3. `kubectl apply -f modules/person/deployment/udaconnect-person.yaml` - Set up person api service
 4. `kubectl apply -f modules/location_producer/deployment/location_producer.yaml` - Set up location_producer service
