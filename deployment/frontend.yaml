@@ -33,7 +33,7 @@ spec:
       containers:
         - image: veselin032/frontend:latest
           name: udaconnect-app
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           resources:
             requests:
               memory: "128Mi"

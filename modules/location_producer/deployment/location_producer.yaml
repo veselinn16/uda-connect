@@ -33,5 +33,5 @@ spec:
       containers:
       - image: veselin032/location-producer:latest
         name: location-producer
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
       restartPolicy: Always

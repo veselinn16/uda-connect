@@ -33,7 +33,7 @@ spec:
       containers:
       - image: veselin032/location-consumer:latest
         name: location-consumer
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         env:
         - name: DB_USERNAME
           valueFrom:
