@@ -32,6 +32,7 @@ Vagrant.configure("2") do |config|
       sudo zypper refresh
       sudo zypper --non-interactive install bzip2
       sudo zypper --non-interactive install etcd
+      sudo zypper --non-interactive install apparmor-parser
       curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v1.21.5+k3s1 sh -s -
     SHELL
   end
